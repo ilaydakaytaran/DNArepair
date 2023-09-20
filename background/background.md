@@ -1,5 +1,5 @@
 # BACKGROUND.md
-The scripts under this folder is used for 
+The scripts under this folder are used for 
 - creating a list of all background genes for each gene in of interest
 - creating pseudo-NER gene lists with found background genes
 - calculating the mutation percentage of the random lists
