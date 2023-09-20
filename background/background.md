@@ -9,6 +9,12 @@ The scripts under this folder is used for
 
 # FILE CONTENTS
 
+## input_files
+- [df_all_repair_ner.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/df_all_repair_ner.txt): dataframe of all repair genes (Nucleotide Excision Repair, Base Excision Repair, Crosslink Repair, Mismatch Repair, Double Strand Break Repair) in tab-separated format, taken from corresponding Gene Ontology terms.
+- [df_rna_ner.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/df_rna_ner.txt): dataframe of additional background genes in tab-separated format, taken from the Gene Ontology term "positive regulation of multicellular organismal process".
+- [ncbi_all_gene_result.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/ncbi_all_gene_result.txt): dataframe of all human protein-coding genes in tab-separated format, taken from NCBI Genes database with the search *' "9606"[Taxonomy ID] AND alive[property] AND genetype protein coding[Properties] '*
+
+
 ## check
 - [background_check.slurm](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/check/background_check.slurm): slurm file used for submitting parallel HPC jobs for 32 cancer studies.
 - [background_check_gg.py](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/check/background_check_gg.py): python script for finding background genes for Nucleotide Excision Repair-GG genes, creating random lists and calculating observed mutation rate in NER genes and expected mutation rate in random lists for a single study.
@@ -20,7 +26,6 @@ The scripts under this folder is used for
 - [background_visualisation.slurm](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/visualisation/background_visualisation.slurm): slurm file used for submitting parallel HPC jobs for 32 cancer studies.
 - [background_visualisation.py](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/visualisation/background_visualisation.py): python script for visualising the graphs of observed vs expected mutation rates as a line graph for a single study.
 
-## input_files
-- [df_all_repair_ner.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/df_all_repair_ner.txt): dataframe of all repair genes (Nucleotide Excision Repair, Base Excision Repair, Crosslink Repair, Mismatch Repair, Double Strand Break Repair) in tab-separated format, taken from corresponding Gene Ontology terms.
-- [df_rna_ner.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/df_rna_ner.txt): dataframe of additional background genes in tab-separated format, taken from the Gene Ontology term "positive regulation of multicellular organismal process".
-- [ncbi_all_gene_result.txt](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/input_files/ncbi_all_gene_result.txt): dataframe of all human protein-coding genes in tab-separated format, taken from NCBI Genes database with the search *' "9606"[Taxonomy ID] AND alive[property] AND genetype protein coding[Properties] '*
+
+## z_score
+- [z_score_plotting.py](https://github.com/ilaydakaytaran/DNArepair/blob/main/background/z_score/z_score_plotting.py): python script for plotting the z-scores of the cancer studies with a significant mutation rate in NER genes as a bar plot. 
