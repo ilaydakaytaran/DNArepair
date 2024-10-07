@@ -63,35 +63,6 @@ for study_id in mutation_counts.keys():
   df = pd.DataFrame(mutations_in_samples.values(), index=mutations_in_samples.keys())
   df.to_csv("/cta/users/ilaydakaytaran/maf_analysis_2/cancer_studies_background/" + study_id + "/mutations_in_samples_" + study_id + ".txt", sep="\t")
 
-"""
-# box plot visualisation - unordered
-
-# extract study IDs and mutation counts
-study_labels = []
-mutation_counts_studies = []
-for study_id in study_ids:
-  study_labels.append(study_ids[study_id])
-  sample_counts = mutation_counts[study_id]
-  mutation_counts_studies.append(list(sample_counts.values()))
-  #mutation_counts_studies.append(list(np.log2(i) for i in sample_counts.values()))
-
-plt.figure(figsize=(30, 10))
-
-# plot each boxplot
-plt.boxplot(mutation_counts_studies, labels=study_labels, patch_artist=True)
-
-plt.xlabel('Cancer Studies')
-plt.ylabel('Mutation Counts')
-#plt.ylabel('log2(Mutation Counts)')
-plt.title('Box Plot of Mutation Counts for Different Cancer Studies')
-plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
-plt.grid(True)
-plt.tight_layout()  # Adjust layout to prevent clipping of labels
-plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts.pdf', format='pdf')
-#plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_log2.pdf', format='pdf')
-
-"""
-
 # box plot visualisation - ordered
 
 # calculate means of mutation counts for each study
