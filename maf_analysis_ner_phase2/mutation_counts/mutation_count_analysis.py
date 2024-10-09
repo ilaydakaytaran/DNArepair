@@ -73,7 +73,12 @@ means = {study_id: np.mean(np.log2(list(counts.values()))) for study_id, counts 
 sorted_study_labels = [study_ids[study_id] for study_id, _ in sorted(means.items(), key=lambda x: x[1])]
 
 # sort mutation counts accordingly and extract values
-#sorted_mutation_counts = [list(mutation_counts[study_id].values()) for study_id in sorted(means, key=means.get)]
+
+"""
+# activate this line for plotting the non-transformed mutation counts and comment out the line 82
+sorted_mutation_counts = [list(mutation_counts[study_id].values()) for study_id in sorted(means, key=means.get)]
+"""
+
 sorted_mutation_counts = [np.log2(list(mutation_counts[study_id].values())) for study_id in sorted(means, key=means.get)]
 
 plt.figure(figsize=(30, 10))
@@ -88,5 +93,10 @@ plt.title('Box Plot of Mutation Counts for Different Cancer Studies (Ordered by 
 plt.xticks(rotation=45, ha='right')
 plt.grid(True)
 plt.tight_layout()
-#plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_ordered.pdf', format='pdf')
+
+"""
+# activate this line for plotting the non-transformed mutation counts and comment out the line 102
+plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_ordered.pdf', format='pdf')
+"""
+
 plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_ordered_log2.pdf', format='pdf')
