@@ -66,7 +66,11 @@ for study_id in mutation_counts.keys():
 # box plot visualisation - ordered
 
 # calculate means of mutation counts for each study
-#means = {study_id: np.mean(list(counts.values())) for study_id, counts in mutation_counts.items()}
+
+"""
+# activate this line to calculate means on non-transformed mutation counts and comment out line 74
+means = {study_id: np.mean(list(counts.values())) for study_id, counts in mutation_counts.items()}
+"""
 means = {study_id: np.mean(np.log2(list(counts.values()))) for study_id, counts in mutation_counts.items()}
 
 # sort study labels based on means
@@ -75,10 +79,9 @@ sorted_study_labels = [study_ids[study_id] for study_id, _ in sorted(means.items
 # sort mutation counts accordingly and extract values
 
 """
-# activate this line for plotting the non-transformed mutation counts and comment out the line 82
+# activate this line for plotting the non-transformed mutation counts and comment out line 85
 sorted_mutation_counts = [list(mutation_counts[study_id].values()) for study_id in sorted(means, key=means.get)]
 """
-
 sorted_mutation_counts = [np.log2(list(mutation_counts[study_id].values())) for study_id in sorted(means, key=means.get)]
 
 plt.figure(figsize=(30, 10))
@@ -87,16 +90,17 @@ plt.figure(figsize=(30, 10))
 plt.boxplot(sorted_mutation_counts, labels=sorted_study_labels, patch_artist=True)
 
 plt.xlabel('Cancer Studies')
-#plt.ylabel('Mutation Counts')
+"""
+# activate this line for labelling the non-transformed plot and comment out line 97
+plt.ylabel('Mutation Counts')
+"""
 plt.ylabel('log2(Mutation Counts)')
 plt.title('Box Plot of Mutation Counts for Different Cancer Studies (Ordered by Mean)')
 plt.xticks(rotation=45, ha='right')
 plt.grid(True)
 plt.tight_layout()
-
 """
-# activate this line for plotting the non-transformed mutation counts and comment out the line 102
+# activate this line for saving the non-transformed plot and comment out line 106
 plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_ordered.pdf', format='pdf')
 """
-
 plt.savefig('/cta/users/ilaydakaytaran/maf_analysis_2/mutation_counts_ordered_log2.pdf', format='pdf')
