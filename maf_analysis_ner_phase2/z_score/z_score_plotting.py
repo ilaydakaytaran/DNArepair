@@ -35,7 +35,6 @@ study_ids = {
 }
 
 
-"""
 # get significant z-scores
 z_scores_all = {}
 p_values_all = {}
@@ -78,7 +77,8 @@ if len(list(z_scores_all.keys())) > 0:
     plt.savefig('significants/z_scores_all_background.pdf', format='pdf')
 
 """
-# SAME CODE FOR PATHOGENIC ANALYSIS
+# activate these comment lines to plot z-scores of pathogenic analysis on a gene list and comment out lines 38-77 (both inclusive)
+
 # get significant z-scores
 z_scores_all = {}
 p_values_all = {}
@@ -119,3 +119,4 @@ if len(list(z_scores_all.keys())) > 0:
     plt.gca().spines['right'].set_visible(False)
     plt.tight_layout()
     plt.savefig('significants/z_scores_all.pdf', format='pdf')
+"""
