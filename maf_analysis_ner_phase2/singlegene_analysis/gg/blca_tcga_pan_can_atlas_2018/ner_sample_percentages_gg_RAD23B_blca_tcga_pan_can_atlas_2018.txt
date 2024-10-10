@@ -1,3 +1,0 @@
-	0
-RAD23B	0.487
-cumulative	0.487

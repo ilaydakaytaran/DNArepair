@@ -1,3 +1,0 @@
-	0
-RNF111	0.0
-cumulative	0.0

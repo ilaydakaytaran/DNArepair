@@ -1,3 +1,0 @@
-	0
-DDB2	0.485
-cumulative	0.485

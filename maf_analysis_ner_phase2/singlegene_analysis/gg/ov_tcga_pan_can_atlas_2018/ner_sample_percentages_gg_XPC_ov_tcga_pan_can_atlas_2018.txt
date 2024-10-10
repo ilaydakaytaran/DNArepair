@@ -1,3 +1,0 @@
-	0
-XPC	0.728
-cumulative	0.728

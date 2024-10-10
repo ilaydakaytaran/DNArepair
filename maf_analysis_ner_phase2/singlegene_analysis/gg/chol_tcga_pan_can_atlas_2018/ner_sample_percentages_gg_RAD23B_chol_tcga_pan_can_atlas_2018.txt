@@ -1,3 +1,0 @@
-	0
-RAD23B	0.0
-cumulative	0.0
