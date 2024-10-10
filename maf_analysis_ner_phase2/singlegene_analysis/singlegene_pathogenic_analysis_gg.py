@@ -28,10 +28,6 @@ def main(study_id):
     maf_df.dropna(how='all', inplace=True)
     maf_df = maf_df.reset_index(drop=True)
   
-  """ # filter maf df on clin_sig and polyphen where both is missing
-  maf_df = maf_df.dropna(subset=["CLIN_SIG", "PolyPhen"], how="all")
-  maf_df = maf_df.reset_index(drop=True)"""
-  
   # filter maf df on clin_sig and polyphen for pathogenicity
   maf_df['CLIN_SIG_list'] = maf_df['CLIN_SIG'].str.split(';')
     # 1 - clin_sig has at least one of this
