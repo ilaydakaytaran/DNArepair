@@ -1,0 +1,3 @@
+	0
+RNF111	3.163
+cumulative	3.163

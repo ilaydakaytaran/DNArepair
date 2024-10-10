@@ -1,0 +1,3 @@
+	0
+RAD23A	0.485
+cumulative	0.485

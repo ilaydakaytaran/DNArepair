@@ -1,0 +1,3 @@
+	0
+DDB2	0.541
+cumulative	0.541

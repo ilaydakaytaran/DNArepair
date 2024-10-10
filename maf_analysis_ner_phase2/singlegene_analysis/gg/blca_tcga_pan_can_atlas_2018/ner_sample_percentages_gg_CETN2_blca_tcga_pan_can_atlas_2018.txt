@@ -1,0 +1,3 @@
+	0
+CETN2	0.487
+cumulative	0.487
