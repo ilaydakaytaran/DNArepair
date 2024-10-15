@@ -17,20 +17,22 @@ The analysis results of significantly mutated studies are found in [significants
 
 ## [input_files](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/input_files/)
 - **df_all_repair_ner.txt**: Dataframe of all repair genes (Nucleotide Excision Repair, Base Excision Repair, Crosslink Repair, Mismatch Repair, Double Strand Break Repair) in tab-separated format, taken from corresponding Gene Ontology terms.
-- **df_rna_ner.txt**: Dataframe of additional background genes in tab-separated format, taken from the Gene Ontology term "positive regulation of multicellular organismal process".
-- **ncbi_all_gene_result.txt**: Dataframe of all human protein-coding genes in tab-separated format, taken from NCBI Genes database with the search *' "9606"[Taxonomy ID] AND alive[property] AND genetype protein coding[Properties] '*
 
+- **df_rna_ner.txt**: Dataframe of additional background genes in tab-separated format, taken from the Gene Ontology term "positive regulation of multicellular organismal process".
+
+- **ncbi_all_gene_result.txt**: Dataframe of all human protein-coding genes in tab-separated format, taken from NCBI Genes database with the search *' "9606"[Taxonomy ID] AND alive[property] AND genetype protein coding[Properties] '*
 
 ## [check](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/check/)
 - **background_check.slurm**: Slurm file used for submitting parallel HPC jobs for 32 cancer studies.
-- **background_check_*genelistname*.py**: Python script for finding background genes for the respective gene list genes from non-NER repair genes, creating random lists and calculating observed mutation rate in NER genes and expected mutation rate in random lists for a single study. For gene lists NER-TCR and NER-Common, additional Gene Ontology term “positive regulation of multicellular organismal process” genes are added to the pool of background genes to be able to represent some shorter genes in these lists.
-- **background_check_ercc6.py**: Python script for finding background genes for a single gene of interest (ERCC6 in the script) from non-NER repair genes, creating random lists and calculating observed mutation rate in the gene of interest and expected mutation rate in random lists for a single study. Note that unlike all the other background gene finding scripts with a range criteria of +/- 5% of the NER protein length, this one uses a range criteria of +/- 10% during the selection of potential background genes for an NER gene. This alteration was done to obtain enough background genes during the analysis of a single gene (ERCC6).
 
+- **background_check_*genelistname*.py**: Python script for finding background genes for the respective gene list genes from non-NER repair genes, creating random lists and calculating observed mutation rate in NER genes and expected mutation rate in random lists for a single study. For gene lists NER-TCR and NER-Common, additional Gene Ontology term “positive regulation of multicellular organismal process” genes are added to the pool of background genes to be able to represent some shorter genes in these lists.
+
+- **background_check_ercc6.py**: Python script for finding background genes for a single gene of interest (ERCC6 in the script) from non-NER repair genes, creating random lists and calculating observed mutation rate in the gene of interest and expected mutation rate in random lists for a single study. Note that unlike all the other background gene finding scripts with a range criteria of +/- 5% of the NER protein length, this one uses a range criteria of +/- 10% during the selection of potential background genes for an NER gene. This alteration was done to obtain enough background genes during the analysis of a single gene (ERCC6).
 
 ## [visualisation](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/visualisation/)
 - **background_visualisation.slurm**: Slurm file used for submitting parallel HPC jobs for 32 cancer studies.
-- **\*** **background_visualisation.py**: Python script for visualising the graphs of observed vs expected mutation rates as a line graph for a single study.
 
+- **\*** **background_visualisation.py**: Python script for visualising the graphs of observed vs expected mutation rates as a line graph for a single study.
 
 ## [z_score](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/z_score/)
 - **\*** **z_score_plotting.py**: Python script for plotting the Z-scores of the cancer studies with a significant mutation rate in NER genes as a bar plot. 
