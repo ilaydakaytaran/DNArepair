@@ -24,6 +24,8 @@ The analysis results of significantly mutated studies are found in [significants
 
 - **ncbi_all_gene_result_27122023.txt**: Dataframe of all human protein-coding genes in tab-separated format (redownloaded on 27 December 2023) taken from NCBI Genes database with the search *' "9606"[Taxonomy ID] AND alive[property] AND genetype protein coding[Properties] '*
 
+- **sample_ids/sample_ids_*study_id*.txt**: Text files containing the sample IDs beloning to each TCGA cancer study, identified by the *study_id* in the filename. The IDs in the files are in comma-separated format.
+  
 ## [mutation_counts](https://github.com/ilaydakaytaran/DNArepair/blob/main/maf_analysis_ner_phase2/mutation_counts/)
 - **mutation_count_analysis.py**: Python script for plotting the box plots of the mutation counts of each study from the MC3 MAF file.
 
