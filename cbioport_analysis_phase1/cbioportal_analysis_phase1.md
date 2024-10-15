@@ -24,13 +24,26 @@ The analysis results of significantly mutated studies are found in [significants
 ## [check](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/check/)
 - **background_check.slurm**: Slurm file used for submitting parallel HPC jobs for 32 cancer studies.
 - **background_check_*genelistname*.py**: Python script for finding background genes for the respective gene list genes from non-NER repair genes, creating random lists and calculating observed mutation rate in NER genes and expected mutation rate in random lists for a single study. For gene lists NER-TCR and NER-Common, additional Gene Ontology term “positive regulation of multicellular organismal process” genes are added to the pool of background genes to be able to represent some shorter genes in these lists.
-- **background_check_ercc6.py**: Python script for finding background genes for a single gene of interest from non-NER repair genes, creating random lists and calculating observed mutation rate in the gene of interest and expected mutation rate in random lists for a single study.
+- **background_check_ercc6.py**: Python script for finding background genes for a single gene of interest (ERCC6 in the script) from non-NER repair genes, creating random lists and calculating observed mutation rate in the gene of interest and expected mutation rate in random lists for a single study.
 
 
 ## [visualisation](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/visualisation/)
 - **background_visualisation.slurm**: Slurm file used for submitting parallel HPC jobs for 32 cancer studies.
-- **background_visualisation.py**: Python script for visualising the graphs of observed vs expected mutation rates as a line graph for a single study.
+- **\*** **background_visualisation.py**: Python script for visualising the graphs of observed vs expected mutation rates as a line graph for a single study.
 
 
 ## [z_score](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/z_score/)
-- **z_score_plotting.py**: Python script for plotting the Z-scores of the cancer studies with a significant mutation rate in NER genes as a bar plot. 
+- **\*** **z_score_plotting.py**: Python script for plotting the Z-scores of the cancer studies with a significant mutation rate in NER genes as a bar plot. 
+
+## [significants](https://github.com/ilaydakaytaran/DNArepair/blob/main/cbioportal_analysis_phase1/significants/)
+- **\*\*** **significant_z_scores_*genelistname*.txt**: Text files containing the study names that were found to have significant mutations in the respective gene list genes from the analyses run on mutation data from cBioPortal. The file is in tab-separated format, where the first column is the study name and second column is Z-score.
+
+- **\*\*** **significant_z_scores_ercc6.txt**: Text file containing the study names that were found to have significant mutations in ERCC6 from the analyses run on mutation data from cBioPortal. The file is in tab-separated format, where the first column is the study name and second column is Z-score.
+
+- **z_scores_*genelistname*.pdf**: The plots of significant study names vs. Z-scores from the respective gene list analyses run on mutation data from cBioPortal.
+
+- **z_scores_ercc6.pdf**: The plot of significant studies vs. Z-scores from the ERCC6 analyses run on mutation data from cBioPortal.
+
+**\*** The file names and the paths in the script need to be changed according to the gene list name used (common, gg, tcr or a single gene symbol like ercc6).
+
+**\*\*** An empty file indicates an analysis that found no studies with significant mutations in the respective gene list.
