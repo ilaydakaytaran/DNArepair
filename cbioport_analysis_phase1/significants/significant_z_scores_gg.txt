@@ -1,0 +1,3 @@
+Kidney Chromophobe	2.5954840479388857
+Bladder Urothelial Carcinoma	1.7728288887641823
+Uterine Corpus Endometrial Carcinoma	1.7288615393062616

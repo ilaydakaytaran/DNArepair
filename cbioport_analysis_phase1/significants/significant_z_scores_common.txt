@@ -1,0 +1,3 @@
+Kidney Chromophobe	2.07222493068692
+Bladder Urothelial Carcinoma	1.773297829123775
+Pheochromocytoma and Paraganglioma	1.7895996223619857

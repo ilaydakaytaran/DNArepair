@@ -1,0 +1,4 @@
+Acute Myeloid Leukemia	2.3705248375033543
+Adrenocortical Carcinoma	2.0426487199475707
+Ovarian Serous Cystadenocarcinoma	2.059309159977105
+Skin Cutaneous Melanoma	1.8553104612051432
