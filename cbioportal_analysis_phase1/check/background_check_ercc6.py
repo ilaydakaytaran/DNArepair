@@ -23,12 +23,6 @@ def main(study_id, knee_index):
   df_other_repair = df_all_repair[~(df_all_repair['Pathway'].str.contains("NER"))]
   df_other_repair.reset_index(drop=True, inplace=True)
 
-  # get df of rnap2
-  """with open("df_rna_ner.txt", "r") as f_in:
-    df_rna = pd.read_csv(f_in, sep="\t")
-  df_rna.drop("Unnamed: 0", axis=1, inplace=True)
-  df_rna = df_rna[~(df_rna['Pathway'].str.contains("NER"))]"""
-
   from cbio_py import cbio_mod as cb
 
   # obtain the mutated genes in study
@@ -74,7 +68,6 @@ def main(study_id, knee_index):
 
 
   # get all potential background genes
-  """count = 0"""
   all_background_genes = {}  # {gene: [backgene1, backgene2, ...] for gene in df_ercc6["Symbol"]} for study
   for gene in df_ercc6["GeneID"]:        # iterate genes in each study
     gene = int(gene)
@@ -82,8 +75,6 @@ def main(study_id, knee_index):
     ner_length = int(df_ercc6[df_ercc6["GeneID"] == gene]["protein_length"].iloc[0])
 
     # set range
-    """range_min = ner_length * (1-0.05)
-    range_max = ner_length * (1+0.05)"""
     range_min = ner_length * (1-0.1)
     range_max = ner_length * (1+0.1)
 
@@ -92,12 +83,6 @@ def main(study_id, knee_index):
         other_length = int(row.protein_length)
         if range_min <= other_length and other_length <= range_max:
           background_genes.append(row.Symbol)
-    """count = len(background_genes)
-    for row in df_rna.itertuples(index=False):
-      if int(row.GeneID) not in df_ncbi["GeneID"].values:
-        other_length = int(row.protein_length)
-        if range_min <= other_length and other_length <= range_max:
-          background_genes.append(row.Symbol)"""
     all_background_genes[gene] = background_genes
 
   # save all_background_genes
@@ -109,13 +94,9 @@ def main(study_id, knee_index):
   r.seed(1234)
   random_backgrounds = {} # {random_list1: [random_gene1...], random_list2: [random_gene1...], ... , random_list30 : [random_gene1...], ner_list: [ner_gene1...]}
   ner_list = ["ERCC6"]
-  """for i in range(count):"""    # prepare random lists from repair genes
-  for i in range(len(all_background_genes[2074])):
+  for i in range(len(all_background_genes[2074])):    # prepare random lists from repair genes
     random_list = [all_background_genes[2074][i]] 
     random_backgrounds["random_list"+str(i+1)] = random_list
-  """for i in range(count, 50):
-    random_list = [r.choice(all_background_genes[2074][count:])]
-    random_backgrounds["random_list"+str(i+1)] = random_list"""
   random_backgrounds["ner_list"] = ner_list
 
   # save random_backgrounds
